@@ -37,5 +37,4 @@
 docker build -t flask-app .
 docker run -p 5000:5000 flask-app
 ```
-
 Открой в браузере: [http://localhost:5000]
