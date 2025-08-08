@@ -1,38 +1,41 @@
-# Flask Docker CI/CD Pipeline
+#  Flask + Docker: CI/CD пайплайн
 
-This project demonstrates a simple CI/CD pipeline using GitHub Actions, Docker, and a Python Flask app.
+Этот проект демонстрирует простой CI/CD пайплайн с использованием **GitHub Actions**, **Docker** и **Python Flask**.
 
-## Features
+## 🚀 Возможности
 
-- Simple Flask app
-- Pytest for testing
-- Dockerfile to build image
-- GitHub Actions workflow to run tests, build and push Docker image to Docker Hub
+- Простое Flask-приложение  
+- Тестирование с помощью `pytest`  
+- `Dockerfile` для сборки образа  
+- GitHub Actions workflow для:  
+  - запуска тестов  
+  - сборки образа  
+  - отправки образа на Docker Hub  
 
-## Setup
+## ⚙️ Настройка
 
-1. Create a repository on GitHub and push this project.
-2. Create a Docker Hub account if you don't have one.
-3. Create a Docker Hub access token:
-   - Go to Docker Hub -> Settings -> Security -> New Access Token
-4. In your GitHub repo, go to Settings -> Secrets and add:
-   - `DOCKERHUB_USERNAME` - your Docker Hub username
-   - `DOCKERHUB_TOKEN` - your Docker Hub access token
-5. Push changes to the `main` branch to trigger CI/CD pipeline.
+1. Создай репозиторий на GitHub и загрузи туда этот проект.  
+2. Создай аккаунт на [Docker Hub](https://hub.docker.com/), если ещё нет.  
+3. Создай **Docker Hub Access Token**:
+   - Перейди в Docker Hub → Settings → Security → **New Access Token**  
+4. В настройках GitHub-репозитория (`Settings → Secrets and variables → Actions → New repository secret`) добавь два секрета:
+   - `DOCKERHUB_USERNAME` — твой логин на Docker Hub  
+   - `DOCKERHUB_TOKEN` — сгенерированный Access Token  
+5. Сделай `push` в ветку `main` — пайплайн CI/CD автоматически запустится.
 
-## How it works
+## 🔁 Как это работает
 
-- On every push to `main`, GitHub Actions:
-  - Runs tests with pytest
-  - Builds Docker image
-  - Pushes the image to Docker Hub under your username
+Каждый раз при `push` в ветку `main` GitHub Actions:
 
-## Run locally
+1. Запускает тесты с `pytest`  
+2. Собирает Docker-образ  
+3. Публикует образ на Docker Hub под твоим логином  
+
+## 🖥 Локальный запуск
 
 ```bash
-docker build -t flask-docker-cicd .
-docker run -p 5000:5000 flask-docker-cicd
+docker build -t flask-app .
+docker run -p 5000:5000 flask-app
 ```
 
-Open http://localhost:5000 to see the app.
-
+Открой в браузере: [http://localhost:5000]
